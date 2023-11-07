@@ -1,6 +1,15 @@
+:root {
+	--odd-row: black;
+	--even-row: #333233;
+}
+
 body {
 	background: black;
 	color: blanchedalmond;
+}
+
+table {
+	border: 1px solid white;
 }
 
 .center-div {
