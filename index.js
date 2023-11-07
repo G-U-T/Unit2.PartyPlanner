@@ -13,11 +13,9 @@ const render = () => {
 
 	let isRowOdd = true;
 	activeParties.forEach((party) => {
+		console.log(party);
 		const tableRow = document.createElement('tr');
-		const tableData = document.createElement('td');
-		tableData.innerText = party.name;
 		table.appendChild(tableRow);
-		tableRow.appendChild(tableData);
 
 		// Alternate background colors for table rows:
 		if (isRowOdd) {
@@ -27,6 +25,21 @@ const render = () => {
 			tableRow.style.background = evenRowColor;
 		}
 		isRowOdd = !isRowOdd;
+
+		const addTableData = (data) => {
+			const tableData = document.createElement('td');
+			tableData.innerText = data;
+			tableRow.appendChild(tableData);
+		};
+
+		for (const key in party) {
+			// Don't render the id or cohortId.
+			if (key === `id` || key === `cohortId`) {
+				continue;
+			}
+
+			addTableData(party[key]);
+		}
 	});
 };
 
