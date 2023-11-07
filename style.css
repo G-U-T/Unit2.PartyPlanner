@@ -1,6 +1,6 @@
 :root {
 	--odd-row: black;
-	--even-row: #333233;
+	--even-row: #202022;
 }
 
 body {
@@ -11,6 +11,16 @@ body {
 table {
 	border: 1px solid white;
 	width: 90%;
+}
+
+button {
+	background: black;
+	color: lightcyan;
+	border: 1px solid white;
+}
+button:hover {
+	background: #323232;
+	color: lightskyblue;
 }
 
 .center-div {

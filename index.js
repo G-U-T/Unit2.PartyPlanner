@@ -13,7 +13,6 @@ const render = () => {
 
 	let isRowOdd = true;
 	activeParties.forEach((party) => {
-		console.log(party);
 		const tableRow = document.createElement('tr');
 		table.appendChild(tableRow);
 
@@ -31,6 +30,17 @@ const render = () => {
 			tableData.innerText = data;
 			tableRow.appendChild(tableData);
 		};
+
+		const deleteButton = document.createElement('button');
+		deleteButton.innerText = `Delete event ${activeParties.indexOf(party) + 1}`;
+		tableRow.appendChild(deleteButton);
+		deleteButton.addEventListener(`click`, () => {
+			/* Gets the row number from the text of the button,
+			then splices it out of the activeParties array. */
+			const rowNum = Number(deleteButton.innerText.slice(13)) - 1;
+			activeParties.splice(rowNum, 1);
+			render();
+		});
 
 		for (const key in party) {
 			// Don't render the id or cohortId.
